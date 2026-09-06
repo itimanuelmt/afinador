@@ -1,0 +1,15 @@
+{
+  "name": "afinador",
+  "private": true,
+  "type": "module",
+  "description": "PWA afinador de guitarra acústica (Vue 3 + Bootstrap 5, sin build). Los dependencias solo se usan para las pruebas.",
+  "scripts": {
+    "test": "node --import ./tests/setup-env.mjs --test \"tests/**/*.test.mjs\""
+  },
+  "devDependencies": {
+    "vue": "3.4.38"
+  },
+  "dependencies": {
+    "@vue/compiler-dom": "3.4.38"
+  }
+}

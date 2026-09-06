@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Afinador de guitarra">
+  <rect width="512" height="512" rx="96" fill="#1f2937" />
+  <g fill="none" stroke="#22c55e" stroke-width="14" stroke-linecap="round">
+    <line x1="120" y1="392" x2="392" y2="120" />
+    <line x1="120" y1="332" x2="332" y2="120" />
+    <line x1="120" y1="272" x2="272" y2="120" />
+    <line x1="120" y1="212" x2="212" y2="120" />
+    <line x1="120" y1="152" x2="152" y2="120" />
+    <line x1="120" y1="452" x2="452" y2="120" />
+  </g>
+  <circle cx="256" cy="256" r="28" fill="#22c55e" />
+</svg>

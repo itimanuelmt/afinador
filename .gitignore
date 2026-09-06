@@ -1,0 +1,2 @@
+# Dependencias solo usadas por las pruebas (el front usa CDN, sin build)
+node_modules/
