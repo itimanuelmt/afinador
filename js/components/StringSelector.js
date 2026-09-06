@@ -7,28 +7,33 @@ export const StringSelector = {
   },
   emits: ['select', 'play-reference'],
   template: `
-    <div>
-      <div class="d-flex flex-wrap justify-content-center gap-2 mb-3">
+    <div class="tuner-strings">
+      <div class="tuner-strings__head">
+        <span>Cuerda</span>
+        <span>EADGBE</span>
+      </div>
+      <div class="tuner-strings__row">
         <button
           v-for="str in strings"
           :key="str.id"
           type="button"
-          class="btn string-btn"
-          :class="str.id === selectedString.id ? 'btn-success' : 'btn-outline-secondary'"
+          class="string-key"
+          :class="{ 'is-selected': str.id === selectedString.id }"
           @click="$emit('select', str)"
         >
-          {{ str.label }}
+          <span class="string-key__note">{{ str.note }}</span>
+          <span class="string-key__label">{{ str.label }}</span>
         </button>
       </div>
-      <div class="d-grid">
+      <div class="tuner-strings__ref">
         <button
           type="button"
-          class="btn"
-          :class="isReferencePlaying ? 'btn-warning' : 'btn-outline-light'"
+          class="tuner-btn tuner-btn--ghost"
+          :class="{ 'is-playing': isReferencePlaying }"
           @click="$emit('play-reference')"
         >
           <i class="bi" :class="isReferencePlaying ? 'bi-stop-fill' : 'bi-volume-up-fill'"></i>
-          {{ isReferencePlaying ? 'Reproduciendo…' : 'Oír tono de ' + selectedString.note }}
+          {{ isReferencePlaying ? 'Reproduciendo' : 'Oír tono de ' + selectedString.note }}
         </button>
       </div>
     </div>

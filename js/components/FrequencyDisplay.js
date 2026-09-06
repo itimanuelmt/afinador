@@ -6,20 +6,20 @@ export const FrequencyDisplay = {
     isInTune: { type: Boolean, required: true }
   },
   template: `
-    <div class="text-center py-3">
+    <div class="tuner-readout">
       <div
-        class="note-badge"
-        :class="detectedNote ? (isInTune ? 'text-success' : 'text-warning') : 'text-secondary'"
+        class="tuner-readout__note"
+        :class="detectedNote ? (isInTune ? 'is-true' : 'is-near') : ''"
       >
         {{ detectedNote ? detectedNote.note + detectedNote.octave : '--' }}
       </div>
-      <div class="freq-value display-6 mt-1">
+      <div class="tuner-readout__freq">
         {{ frequency > 0 ? frequency.toFixed(1) : '0.0' }}
-        <small class="text-muted fs-6">Hz</small>
+        <small>Hz</small>
       </div>
       <div
-        class="badge mt-2"
-        :class="detectedNote ? (isInTune ? 'text-bg-success' : 'text-bg-warning') : 'text-bg-secondary'"
+        class="tuner-state"
+        :class="detectedNote ? (isInTune ? 'is-true' : 'is-near') : ''"
       >
         {{ detectedNote ? (isInTune ? 'En tono' : (detectedNote.cents > 0 ? 'Agudo' : 'Grave')) : 'Esperando señal' }}
       </div>

@@ -9,19 +9,28 @@ export const TuningMeter = {
       const clamped = Math.max(-50, Math.min(50, this.cents));
       return 50 + (clamped / 50) * 50; // 0%..100%
     },
+    hasSignal() {
+      return this.cents !== 0;
+    },
     statusText() {
       if (this.cents === 0) return 'Toca una cuerda';
-      if (this.isInTune) return '¡En tono!';
-      return this.cents > 0 ? 'Baja la tensión (agudo)' : 'Sube la tensión (grave)';
+      if (this.isInTune) return 'En tono';
+      return this.cents > 0 ? 'Agudo &middot; afloja la cuerda' : 'Grave &middot; tensa la cuerda';
     }
   },
   template: `
-    <div class="px-2">
-      <div class="meter mb-2">
-        <div class="meter-center"></div>
-        <div class="meter-needle" :style="{ left: needlePosition + '%' }"></div>
+    <div class="tuner-meter" :class="isInTune && hasSignal ? 'is-true' : ''">
+      <div class="tuner-meter__scale">
+        <div class="tuner-meter__ticks"></div>
+        <div class="tuner-meter__center"></div>
+        <div class="tuner-meter__needle" :style="{ left: needlePosition + '%' }"></div>
       </div>
-      <p class="text-center small mb-0" :class="isInTune ? 'text-success' : 'text-body-secondary'">
+      <div class="tuner-meter__labels">
+        <span>Grave</span>
+        <span>0&cent;</span>
+        <span>Agudo</span>
+      </div>
+      <p class="tuner-meter__status" :class="isInTune && hasSignal ? 'is-true' : ''">
         {{ statusText }}
       </p>
     </div>
