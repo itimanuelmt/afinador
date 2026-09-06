@@ -1,9 +1,11 @@
-const CACHE_NAME = 'afinador-v1';
+const CACHE_NAME = 'afinador-v2';
 const APP_SHELL = [
   './',
   './index.html',
   './manifest.webmanifest',
   './icon.svg',
+  './icon-192.png',
+  './icon-512.png',
   './css/styles.css',
   './js/main.js',
   './js/config/tuning.js',
